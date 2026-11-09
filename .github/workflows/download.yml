@@ -15,7 +15,7 @@ jobs:
           cd /tmp/downloads
 
           # Your URL is correctly formatted now
-          URL='https://demo.filestash.app/api/files/cat?path=%2FMy%20Pack%2FGabbie%20Carter%20-%20Gaping%20Gabbie%E2%80%99s%20Ass.mp4&name=Gabbie%20Carter%20-%20Gaping%20Gabbie%E2%80%99s%20Ass.mp4'
+          URL='https://testfileorg.netwet.net/500MB-CZIPtestfile.org.zip'
 
           echo "Starting download..."
 
