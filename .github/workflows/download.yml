@@ -1,0 +1,47 @@
+name: Remote File Downloader
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "https://demo.filestash.app/api/files/cat?path=%2FMy%20Pack%2FGabbie%20Carter%20-%20Gaping%20Gabbie%E2%80%99s%20Ass.mp4&name=Gabbie%20Carter%20-%20Gaping%20Gabbie%E2%80%99s%20Ass.mp4"
+        required: true
+        type: string
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Download file
+        shell: bash
+        env:
+          DOWNLOAD_URL: ${{ inputs.url }}
+        run: |
+          mkdir -p /tmp/downloads
+          cd /tmp/downloads
+
+          echo "Starting download..."
+          echo "URL: $DOWNLOAD_URL"
+
+          curl -L \
+            --fail \
+            --show-error \
+            --progress-bar \
+            --retry 3 \
+            --connect-timeout 30 \
+            -o downloaded_file \
+            "$DOWNLOAD_URL"
+
+          echo "Download completed!"
+
+          ls -lh downloaded_file
+
+          echo "File will be deleted automatically."
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf /tmp/downloads
+          echo "Temporary files deleted."
