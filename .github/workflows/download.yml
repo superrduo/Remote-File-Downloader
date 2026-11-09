@@ -2,11 +2,6 @@ name: Remote File Downloader
 
 on:
   workflow_dispatch:
-    inputs:
-      url:
-        description: "direct downldaod"
-        required: true
-        type: string
 
 jobs:
   download:
@@ -15,15 +10,14 @@ jobs:
 
     steps:
       - name: Download file
-        shell: bash
-        env:
-          DOWNLOAD_URL: ${{ inputs.url }}
         run: |
           mkdir -p /tmp/downloads
           cd /tmp/downloads
 
+          # PASTE YOUR DOWNLOAD URL HERE
+          URL='https://demo.filestash.app/api/files/cat?path=%2FMy%20Pack%2FGabbie%20Carter%20-%20Gaping%20Gabbie%E2%80%99s%20Ass.mp4&name=Gabbie%20Carter%20-%20Gaping%20Gabbie%E2%80%99s%20Ass.mp4'
+
           echo "Starting download..."
-          echo "URL: $DOWNLOAD_URL"
 
           curl -L \
             --fail \
@@ -32,13 +26,11 @@ jobs:
             --retry 3 \
             --connect-timeout 30 \
             -o downloaded_file \
-            "$DOWNLOAD_URL"
+            "$URL"
 
           echo "Download completed!"
 
           ls -lh downloaded_file
-
-          echo "File will be deleted automatically."
 
       - name: Cleanup
         if: always()
