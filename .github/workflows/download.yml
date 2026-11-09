@@ -15,7 +15,7 @@ jobs:
           cd /tmp/downloads
 
           # Your URL is correctly formatted now
-          URL='https://testfileorg.netwet.net/500MB-CZIPtestfile.org.zip'
+          URL='https://cdn.hotelnearmedanta.com/testfile.org/testfile.org-5GB.dat'
 
           echo "Starting download..."
 
