@@ -15,7 +15,7 @@ jobs:
           cd /tmp/downloads
 
           # Your URL is correctly formatted now
-          URL='https://cdn.hotelnearmedanta.com/testfile.org/testfile.org-5GB.dat'
+          URL='https://nexus-080.indi.tb-cdn.pw/dld/3f9ce7ef-0f91-4d47-88a2-286b3e8465d8?token=c6359f15-f4b9-44d1-87f9-52d873607704&filename=489155.com%40DANDY-931-LTX.mp4'
 
           echo "Starting download..."
 
