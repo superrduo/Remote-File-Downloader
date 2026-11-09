@@ -14,15 +14,15 @@ jobs:
           mkdir -p /tmp/downloads
           cd /tmp/downloads
 
-          # PASTE YOUR DOWNLOAD URL HERE
-          URL='https://testfileorg.netwet.net/500MB-CZIPtestfile.org.zip'
+          # Your URL is correctly formatted now
+          URL='https://demo.filestash.app/api/files/cat?path=%2FMy%20Pack%2FGabbie%20Carter%20-%20Gaping%20Gabbie%E2%80%99s%20Ass.mp4&name=Gabbie%20Carter%20-%20Gaping%20Gabbie%E2%80%99s%20Ass.mp4'
 
           echo "Starting download..."
 
+          # Removed --progress-bar so curl displays the detailed speed meter
           curl -L \
             --fail \
             --show-error \
-            --progress-bar \
             --retry 3 \
             --connect-timeout 30 \
             -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
@@ -30,4 +30,5 @@ jobs:
             "$URL"
 
           echo "Download completed!"
+
           ls -lh downloaded_file
